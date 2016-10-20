@@ -3,7 +3,7 @@ Captcha implementation for SuiteCRM based on securimage
 
 SuiteCRM has a ReCaptcha implementation for the password reset mechanism.
 
-This module verifies captchas agains the local captcha library securimage and enforeces a captcha check enabled at login.
+This module verifies captchas agains the local captcha library securimage and also enforces a captcha check at login.
 
 ## Installing the module
 
