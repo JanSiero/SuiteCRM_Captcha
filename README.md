@@ -8,9 +8,7 @@ This module verifies captchas agains the local captcha library securimage and al
 ## Installing the module
 
  - Download the module from the repository
- - Download the Securimage library here (and consider a donation):
- https://www.phpcaptcha.org/download
- 
+ - Download the Securimage library here (and consider a donation): https://www.phpcaptcha.org/download
  - Unpack the module
  - Descend into the directory/folder SuiteCRM_Captcha
  - Unpack the Securimage zip into the "include" directory/folder, you can omit the "audio" directory/folder
