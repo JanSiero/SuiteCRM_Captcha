@@ -18,27 +18,26 @@ This module verifies captchas agains the local captcha library securimage and en
  - Check that the resulting zip doesn't contain a parent directory SuiteCRM_Captcha: the file "manifest.php" should be in its root
  - go into SuiteCRM admin, Module Loader and upload the module
  
- ## Compatibility
- The module has been tested on SuiteCRM version 7.7 onward
+## Compatibility
+The module has been tested on SuiteCRM version 7.7 onward
  
- ## Upgrade safety
- The module is not upgrade safe as it needs to overwrite some core files. These are:
+## Upgrade safety
+The module is not upgrade safe as it needs to overwrite some core files. These are:
 
-1. overwrites the following core files:
-  -	modules/Users/Authenticate.php
-  -	modules/Users/GeneratePassword.php
-  -	include/MVC/SugarApplication.php
-  -	modules/Users/login.tpl
+1. the following core files:
+  - modules/Users/Authenticate.php
+  - modules/Users/GeneratePassword.php
+  - include/MVC/SugarApplication.php
+  - modules/Users/login.tpl
 
-2. overwrites the following theme files:
+2. the following theme files:
   - themes/Suite7/tpls/login.tpl
-  -	themes/SuiteR/tpls/login.tpl
+  - themes/SuiteR/tpls/login.tpl
   - themes/SuiteP/tpls/login.tpl
-	- themes/SuiteP/css/style.css
+  - themes/SuiteP/css/style.css
   
- In case of upgrading
-  - First uninstall the module
-  - perform the upgrade
-  - check the module compatibility by checking the contents of the files above. The module can be made compatible against newer versions by using the captcha.diff file in the module file
-  - After asserting its compatibility reinstall the captcha module
-
+In case of upgrading
+ - First uninstall the module
+ - perform the upgrade
+ - check the module compatibility by checking the contents of the files above. The module can be made compatible against newer versions by using the captcha.diff file in the module file
+ - After asserting its compatibility reinstall the captcha module
