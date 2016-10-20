@@ -1,0 +1,196 @@
++++ modules/Users/login.tpl	2016-09-07 16:18:19.714510236 +0200
+@@ -111,10 +111,17 @@
+                                                 <td scope="row"><label for="user_password">{sugar_translate module="Users" label="LBL_PASSWORD"}:</label></td>
+                                                 <td width="30%"><input type="password" size='26' tabindex="2" id="user_password" name="user_password" value='{$LOGIN_PASSWORD}' /></td>
+                                             </tr>
+-
++                                            <tr style="{$CAPTCHA_STYLE}">
++                                                <td scope="row"><label for="user_captcha">Captcha:</label></td>
++                                                <td>
++                                                   <img id="captcha" src="index.php?entryPoint=securimage_show" alt="CAPTCHA Image" /><br/>
++                                                   <input id="user_captcha" type="text" name="captcha_code" size="10" maxlength="6" tabindex="3"/><br/>
++                                                   <a href="#" onclick="document.getElementById('captcha').src = 'index.php?entryPoint=securimage_show&p=' + Math.random(); return false">[ Different Image ]</a>
++                                                </td>
++                                            </tr>
+                                             <tr>
+                                                 <td>&nbsp;</td>
+-                                                <td><input title="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_TITLE"}"  class="button primary" class="button primary" type="submit" tabindex="3" id="login_button" name="Login" value="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_LABEL"}"><br>&nbsp;</td>
++                                                <td><input title="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_TITLE"}"  class="button primary" class="button primary" type="submit" tabindex="4" id="login_button" name="Login" value="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_LABEL"}"><br>&nbsp;</td>
+                                             </tr>
+                                         </table>
+                                     </form>
+@@ -151,7 +158,14 @@
+                                                 <td scope="row" width="30%"><label for="fp_user_mail">{sugar_translate module="Users" label="LBL_EMAIL"}:</label></td>
+                                                 <td width="70%"><input type="text" size='26' id="fp_user_mail" name="fp_user_mail"  value='' ></td>
+                                             </tr>
+-                                            {$CAPTCHA}
++                                            <tr style="{$CAPTCHA_STYLE}">
++                                                <td scope="row"><label for="user_captcha">Captcha:</label></td>
++                                                <td>
++                                                   <img id="captcha" src="index.php?entryPoint=securimage_show" alt="CAPTCHA Image" /><br/>
++                                                   <input id="user_captcha" type="text" name="captcha_code" size="10" maxlength="6" /><br/>
++                                                   <a href="#" onclick="document.getElementById('captcha').src = 'index.php?entryPoint=securimage_show&p=' + Math.random(); return false">[ Different Image ]</a>
++                                                </td>
++                                            </tr>
+                                             <tr>
+                                                 <td scope="row" width="30%"><div id='wait_pwd_generation'></div></td>
+                                                 <td width="70%"><input title="Email Temp Password" class="button" type="button" style="display:inline" onclick="validateAndSubmit(); return document.getElementById('cant_login').value == ''" id="generate_pwd_button" name="fp_login" value="{sugar_translate module="Users" label="LBL_LOGIN_SUBMIT"}"></td>
++++ themes/Suite7/tpls/login.tpl	2016-09-07 14:55:38.090392316 +0200
+@@ -111,10 +111,17 @@
+ 										<td scope="row"><label for="user_password">{sugar_translate module="Users" label="LBL_PASSWORD"}:</label></td>
+ 										<td width="30%"><input type="password" size='26' tabindex="2" id="user_password" name="user_password" value='{$LOGIN_PASSWORD}' /></td>
+ 									</tr>
+-
++                                                                        <tr style="{$CAPTCHA_STYLE}">
++                                                                           <td scope="row"><label for="user_captcha">Captcha:</label></td>
++                                                                           <td>
++                                                                              <img id="captcha" src="index.php?entryPoint=securimage_show" alt="CAPTCHA Image" /><br/>
++                                                                              <input id="user_captcha" type="text" name="captcha_code" size="10" maxlength="6" tabindex="3" /><br/>
++                                                                              <a href="#" onclick="document.getElementById('captcha').src = 'index.php?entryPoint=securimage_show&p=' + Math.random(); return false">[ Different Image ]</a>
++                                                                           </td>
++                                                                        </tr>
+ 									<tr>
+ 										<td>&nbsp;</td>
+-										<td><input title="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_TITLE"}"  class="button primary" class="button primary" type="submit" tabindex="3" id="login_button" name="Login" value="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_LABEL"}"><br>&nbsp;</td>
++										<td><input title="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_TITLE"}"  class="button primary" class="button primary" type="submit" tabindex="4" id="login_button" name="Login" value="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_LABEL"}"><br>&nbsp;</td>
+ 									</tr>
+ 								</table>
+ 							</form>
+@@ -151,7 +158,14 @@
+ 											            <td scope="row" width="30%"><label for="fp_user_mail">{sugar_translate module="Users" label="LBL_EMAIL"}:</label></td>
+ 											            <td width="70%"><input type="text" size='26' id="fp_user_mail" name="fp_user_mail"  value='' ></td>
+ 											     	</tr>
+-													{$CAPTCHA}
++                                                                                                <tr style="{$CAPTCHA_STYLE}">
++                                                                                                   <td scope="row"><label for="user_captcha">Captcha:</label></td>
++                                                                                                   <td>
++                                                                                                      <img id="captcha" src="index.php?entryPoint=securimage_show" alt="CAPTCHA Image" /><br/>
++                                                                                                      <input id="user_captcha" type="text" name="captcha_code" size="10" maxlength="6" /><br/>
++                                                                                                      <a href="#" onclick="document.getElementById('captcha').src = 'index.php?entryPoint=securimage_show&p=' + Math.random(); return false">[ Different Image ]</a>
++                                                                                                   </td>
++                                                                                                </tr>
+ 													<tr>
+ 													    <td scope="row" width="30%"><div id='wait_pwd_generation'></div></td>
+ 														<td width="70%"><input title="Email Temp Password" class="button" type="button" style="display:inline" onclick="validateAndSubmit(); return document.getElementById('cant_login').value == ''" id="generate_pwd_button" name="fp_login" value="{sugar_translate module="Users" label="LBL_LOGIN_SUBMIT"}"></td>
++++ themes/SuiteR/tpls/login.tpl	2016-09-07 16:24:48.490519476 +0200
+@@ -91,7 +91,14 @@
+             <input type="password" class="form-control" placeholder="{sugar_translate module="Users" label="LBL_PASSWORD"}" tabindex="2" id="user_password" name="user_password" value='{$LOGIN_PASSWORD}' />
+         </div>
+         <br>
+-        <input id="bigbutton" class="btn btn-lg btn-primary btn-block" type="submit" title="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_TITLE"}" tabindex="3" name="Login" value="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_LABEL"}">
++        <div class="input-group" style="{$CAPTCHA_STYLE}">
++             <span class="input-group-addon logininput glyphicon glyphicon-lock"></span>
++             <img id="captcha" src="index.php?entryPoint=securimage_show" alt="CAPTCHA Image" /><br/>
++             <input id="user_captcha" class="form-control" placeholder="{sugar_translate module="Users" label="LBL_CAPTCHA_CHALLENGE"}" type="text" name="captcha_code" maxlength="6" tabindex="3"/><br/>
++             <a href="#" onclick="document.getElementById('captcha').src = 'index.php?entryPoint=securimage_show&p=' + Math.random(); return false">[ Different Image ]</a>
++        </div>
++        <br>
++        <input id="bigbutton" class="btn btn-lg btn-primary btn-block" type="submit" title="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_TITLE"}" tabindex="4" name="Login" value="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_LABEL"}">
+         <div id="forgotpasslink" style="cursor: pointer; display:{$DISPLAY_FORGOT_PASSWORD_FEATURE};" onclick='toggleDisplay("forgot_password_dialog");'>
+             <a href='javascript:void(0)'>{sugar_translate module="Users" label="LBL_LOGIN_FORGOT_PASSWORD"}</a>
+         </div>
+@@ -111,7 +118,12 @@
+                     <input type="text" class="form-control" size='26' id="fp_user_mail" name="fp_user_mail" value ='' placeholder="{sugar_translate module="Users" label="LBL_EMAIL"}">
+                 </div>
+                 <br>
+-                {$CAPTCHA}
++                <div class="input-group" style="{$CAPTCHA_STYLE}">
++                    <span class="input-group-addon logininput glyphicon glyphicon-envelope"></span>
++                    <img id="captcha" src="index.php?entryPoint=securimage_show" alt="CAPTCHA Image" /><br/>
++                    <input id="user_captcha" class="form-control" placeholder="{sugar_translate module="Users" label="LBL_CAPTCHA_CHALLENGE"}" type="text" name="captcha_code" maxlength="6" /><br/>
++                    <a href="#" onclick="document.getElementById('captcha').src = 'index.php?entryPoint=securimage_show&p=' + Math.random(); return false">[ Different Image ]</a>
++                </div>
+                 <div id='wait_pwd_generation'></div>
+                 <input title="Email Temp Password" class="button  btn-block" type="button" style="display:inline" onclick="validateAndSubmit(); return document.getElementById('cant_login').value == ''" id="generate_pwd_button" name="fp_login" value="{sugar_translate module="Users" label="LBL_LOGIN_SUBMIT"}">
+             </div>
++++ themes/SuiteP/tpls/login.tpl	2016-09-07 16:32:39.862530679 +0200
+@@ -102,6 +102,12 @@
+                        id="user_password" name="user_password" value='{$LOGIN_PASSWORD}'/>
+             </div>
+             <br>
++            <div class="input-group" style="{$CAPTCHA_STYLE}">
++                <img id="captcha" src="index.php?entryPoint=securimage_show" alt="CAPTCHA Image" /><br/>
++                <input id="user_captcha" class="form-control" placeholder="{sugar_translate module="Users" label="LBL_CAPTCHA_CHALLENGE"}" type="text" name="captcha_code" maxlength="6" tabindex="3"/><br/>
++                <a href="#" onclick="document.getElementById('captcha').src = 'index.php?entryPoint=securimage_show&p=' + Math.random(); return false">[ Different Image ]</a>
++            </div>
++            <br>
+             <input id="bigbutton" class="btn btn-lg btn-primary btn-block" type="submit"
+                    title="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_TITLE"}" tabindex="3" name="Login"
+                    value="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_LABEL"}">
+@@ -130,7 +136,12 @@
+                            placeholder="{sugar_translate module="Users" label="LBL_EMAIL"}">
+                 </div>
+                 <br>
+-                {$CAPTCHA}
++                <div class="input-group" style="{$CAPTCHA_STYLE}">
++                    <img id="captcha" src="index.php?entryPoint=securimage_show" alt="CAPTCHA Image" /><br/>
++                    <input id="user_captcha" class="form-control" placeholder="{sugar_translate module="Users" label="LBL_CAPTCHA_CHALLENGE"}" type="text" name="captcha_code" maxlength="6" /><br/>
++                    <a href="#" onclick="document.getElementById('captcha').src = 'index.php?entryPoint=securimage_show&p=' + Math.random(); return false">[ Different Image ]</a>
++                </div>
++                <br>
+                 <div id='wait_pwd_generation'></div>
+                 <input title="Email Temp Password" class="button  btn-block" type="button" style="display:inline"
+                        onclick="validateAndSubmit(); return document.getElementById('cant_login').value == ''"
++++ modules/Users/Authenticate.php	2016-09-07 16:55:35.118563364 +0200
+@@ -57,6 +57,18 @@
+ $password = isset($_REQUEST['user_password'])
+     ? $_REQUEST['user_password'] : '';
+ 
++require_once 'custom/include/securimage/securimage.php';
++
++$securimage = new Securimage();
++
++if ($securimage->check($_POST['captcha_code']) == false) {
++	  // the code was incorrect
++	  // you should handle the error so that the form processor doesn't continue
++	  // or you can use the following code if there is no validation or you do not know how
++	header("Location: index.php?action=Login&module=Users&loginErrorMessage=ERR_CAPTCHA_INCORRECT");
++	sugar_cleanup(true);
++}
++
+ $authController->login($user_name, $password);
+ // authController will set the authenticated_user_id session variable
+ if(isset($_SESSION['authenticated_user_id'])) {
++++ modules/Users/GeneratePassword.php	2016-09-07 17:01:00.294571092 +0200
+@@ -121,6 +121,18 @@
+ ///////
+ ///////////////////////////////////////////////////
+ 
++require_once 'custom/include/securimage/securimage.php';
++
++$securimage = new Securimage();
++
++if ($securimage->check($_POST['captcha_code']) == false) {
++          // the code was incorrect
++          // you should handle the error so that the form processor doesn't continue
++          // or you can use the following code if there is no validation or you do not know how
++        echo $mod_strings['ERR_CAPTCHA_INCORRECT'];
++        return;
++}
++
+ ///////////////////////////////////////////////////
+ ///////  Check email address
+ 
++++ include/MVC/SugarApplication.php	2016-09-07 13:31:27.111550979 +0200
+@@ -121,7 +121,10 @@
+ 		if(($user_unique_key != $server_unique_key) && (!in_array($this->controller->action, $allowed_actions)) &&
+ 		   (!isset($_SESSION['login_error'])))
+ 		   {
+-			session_destroy();
++                        //only destroy logged in sessions
++                        if (isset($_SESSION['unique_key'])){
++                            session_destroy();
++			}
+ 
+ 			if(!empty($this->controller->action)){
+ 			    if(strtolower($this->controller->action) == 'delete')
++++ themes/SuiteP/css/style.css	2016-09-07 19:32:03.370399333 +0200
+@@ -107,7 +107,7 @@
+ div.p_login #loginform {
+     max-width: 400px;
+     padding: 15px;
+-    margin: 8% auto 0 auto;
++    margin: 3% auto 0 auto;
+     text-align: center;
+ }
+ 
