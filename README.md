@@ -26,13 +26,9 @@ The module is not upgrade safe as it needs to overwrite some core files. These a
   - modules/Users/Authenticate.php
   - modules/Users/GeneratePassword.php
   - include/MVC/SugarApplication.php
-  - modules/Users/login.tpl
 
 2. the following theme files:
-  - themes/Suite7/tpls/login.tpl
-  - themes/SuiteR/tpls/login.tpl
-  - themes/SuiteP/tpls/login.tpl
-  - themes/SuiteP/css/style.css
+  - themes/SuiteP/css/Dawn/style.css
   
 In case of upgrading
  - First uninstall the module

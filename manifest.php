@@ -6,8 +6,8 @@ $manifest = array(
 		'name' => 'Captcha',
 		'description' => 'Installs Captcha on login screen',
 		'author' => 'Siero CRM Consultancy',
-		'published_date' => '2016-09-07',
-		'version' => '1.00',
+		'published_date' => '2020-02-27',
+		'version' => '1.11',
 		'type' => 'module',
 		'icon' => '',
 		'is_uninstallable' => 'Yes',
@@ -17,24 +17,12 @@ $installdefs = array(
 		'id'=> 'siero_captcha',
 		'copy' => array(
 			array(
-				'from'=> '<basepath>/themes/Suite7/login.tpl',
-				'to'=> 'themes/Suite7/tpls/login.tpl'
-			     ),
-			array(
-				'from'=> '<basepath>/themes/SuiteR/login.tpl',
-				'to'=> 'themes/SuiteR/tpls/login.tpl'
-			     ),
-			array(
 				'from'=> '<basepath>/themes/SuiteP/login.tpl',
-				'to'=> 'themes/SuiteP/tpls/login.tpl'
+				'to'=> 'custom/themes/SuiteP/tpls/login.tpl'
 			     ),
 			array(
-				'from'=> '<basepath>/themes/SuiteP/style.css',
-				'to'=> 'themes/SuiteP/css/style.css'
-			     ),
-			array(
-				'from'=> '<basepath>/SugarModules/Users/login.tpl',
-				'to'=> 'modules/Users/login.tpl'
+				'from'=> '<basepath>/themes/SuiteP/login.scss',
+				'to'=> 'custom/themes/SuiteP/css/suitep-base/login.scss'
 			     ),
 			array(
 				'from'=> '<basepath>/SugarModules/Users/Authenticate.php',
@@ -51,6 +39,10 @@ $installdefs = array(
 			array(
 				'from'=> '<basepath>/include/securimage',
 				'to'=> 'custom/include/securimage'
+			     ),
+			array(
+				'from'=> '<basepath>/themes/SuiteP/style.css',
+				'to'=> 'themes/SuiteP/css/Dawn/style.css'
 			     ),
 			),
 		'language' => array (

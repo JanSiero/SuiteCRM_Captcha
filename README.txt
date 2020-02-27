@@ -7,12 +7,8 @@ Captcha module
 	modules/Users/Authenticate.php
 	modules/Users/GeneratePassword.php
 	include/MVC/SugarApplication.php
-	modules/Users/login.tpl
 
  - overwrites the following theme files:
-	themes/Suite7/tpls/login.tpl
-	themes/SuiteR/tpls/login.tpl
-	themes/SuiteP/tpls/login.tpl
-	themes/SuiteP/css/style.css
+	themes/SuiteP/css/Dawn/style.css
 
-Compatible with SuiteCRM up to version 7.7.1 - please check the core files for changes - diff is packed in the module zip
+Compatible with SuiteCRM up to version 7.11.12 - please check the core files for changes - diff is packed in the module zip
