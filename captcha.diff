@@ -1,4 +1,18 @@
-+++ modules/Users/Authenticate.php	2020-02-27 17:46:07.691745919 +0100
++++ include/MVC/SugarApplication.php	2021-12-20 03:33:30.088897841 +0100
+@@ -117,7 +117,11 @@
+ 
+         if (($user_unique_key != $server_unique_key) && (!in_array($this->controller->action, $allowed_actions)) &&
+                 (!isset($_SESSION['login_error']))) {
+-            session_destroy();
++
++                       //only destroy logged in sessions
++                        if (isset($_SESSION['unique_key'])){
++                            session_destroy();
++}
+ 
+             if (!empty($this->controller->action)) {
+                 if (strtolower($this->controller->action) == 'delete') {
++++ modules/Users/Authenticate.php	2021-12-20 03:33:30.084897839 +0100
 @@ -54,6 +54,18 @@
  $password = isset($_REQUEST['username_password'])
      ? $_REQUEST['username_password'] : '';
@@ -18,8 +32,8 @@
  $authController->login($user_name, $password);
  // authController will set the authenticated_user_id session variable
  if (isset($_SESSION['authenticated_user_id'])) {
-+++ modules/Users/GeneratePassword.php	2020-02-27 17:46:07.691745919 +0100
-@@ -116,6 +116,20 @@
++++ modules/Users/GeneratePassword.php	2021-12-20 03:33:30.084897839 +0100
+@@ -112,6 +112,20 @@
  ///////
  ///////////////////////////////////////////////////
  
@@ -40,21 +54,7 @@
  ///////////////////////////////////////////////////
  ///////  Check email address
  
-+++ include/MVC/SugarApplication.php	2020-02-27 17:46:07.691745919 +0100
-@@ -129,7 +129,11 @@
- 
-         if (($user_unique_key != $server_unique_key) && (!in_array($this->controller->action, $allowed_actions)) &&
-                 (!isset($_SESSION['login_error']))) {
--            session_destroy();
-+
-+                       //only destroy logged in sessions
-+                        if (isset($_SESSION['unique_key'])){
-+                            session_destroy();
-+}
- 
-             if (!empty($this->controller->action)) {
-                 if (strtolower($this->controller->action) == 'delete') {
-+++ themes/SuiteP/css/suitep-base/login.scss	2018-05-21 19:04:29.000000000 +0200
++++ themes/SuiteP/css/suitep-base/login.scss	2021-12-20 03:33:30.088897841 +0100
 @@ -68,7 +68,7 @@
  
  div.p_login #loginform {
@@ -64,7 +64,7 @@
    text-align: center;
    max-width: 400px;
  }
-+++ themes/SuiteP/tpls/login.tpl	2018-05-21 19:04:25.000000000 +0200
++++ themes/SuiteP/tpls/login.tpl	2021-12-20 03:33:30.088897841 +0100
 @@ -107,6 +107,12 @@
                         id="username_password" name="username_password" value='{$LOGIN_PASSWORD}' autocomplete="off">
              </div>

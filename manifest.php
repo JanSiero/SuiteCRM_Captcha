@@ -6,8 +6,8 @@ $manifest = array(
 		'name' => 'Captcha',
 		'description' => 'Installs Captcha on login screen',
 		'author' => 'Siero CRM Consultancy',
-		'published_date' => '2021-05-29',
-		'version' => '1.12',
+		'published_date' => '2020-02-27',
+		'version' => '1.11',
 		'type' => 'module',
 		'icon' => '',
 		'is_uninstallable' => 'Yes',
@@ -45,16 +45,20 @@ $installdefs = array(
 				'to'=> 'themes/SuiteP/css/Dawn/style.css'
 			     ),
 			array(
+				'from'=> '<basepath>/themes/SuiteP/Day/style.css',
+				'to'=> 'themes/SuiteP/css/Day/style.css'
+			     ),
+			array(
 				'from'=> '<basepath>/themes/SuiteP/Dusk/style.css',
 				'to'=> 'themes/SuiteP/css/Dusk/style.css'
 			     ),
 			array(
-				'from'=> '<basepath>/themes/SuiteP/Night/style.css',
-				'to'=> 'themes/SuiteP/css/Night/style.css'
+				'from'=> '<basepath>/themes/SuiteP/Noon/style.css',
+				'to'=> 'themes/SuiteP/css/Noon/style.css'
 			     ),
 			array(
-				'from'=> '<basepath>/themes/SuiteP/Day/style.css',
-				'to'=> 'themes/SuiteP/css/Day/style.css'
+				'from'=> '<basepath>/themes/SuiteP/Night/style.css',
+				'to'=> 'themes/SuiteP/css/Night/style.css'
 			     ),
 			),
 		'language' => array (
