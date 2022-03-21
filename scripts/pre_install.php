@@ -35,6 +35,11 @@ function pre_install()
 	if (!file_exists($latest_hash . '/include/securimage/securimage.php'))
 		sugar_die('securimage library not found in installation package under include/securimage - module not installed');
 
+    if (file_exists('cache/themes/SuiteP/css/Dawn/style.css')) unlink('cache/themes/SuiteP/css/Dawn/style.css');
+    if (file_exists('cache/themes/SuiteP/css/Day/style.css')) unlink('cache/themes/SuiteP/css/Day/style.css');
+    if (file_exists('cache/themes/SuiteP/css/Dusk/style.css')) unlink('cache/themes/SuiteP/css/Dusk/style.css');
+    if (file_exists('cache/themes/SuiteP/css/Noon/style.css')) unlink('cache/themes/SuiteP/css/Noon/style.css');
+    if (file_exists('cache/themes/SuiteP/css/Night/style.css')) unlink('cache/themes/SuiteP/css/Night/style.css');
 
 	return true;
 }
