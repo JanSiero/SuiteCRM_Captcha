@@ -17,7 +17,7 @@ This module verifies captchas agains the local captcha library securimage and al
  - go into SuiteCRM admin, Module Loader and upload the module
  
 ## Compatibility
-The module has been tested on SuiteCRM version 7.7 onward
+The module has been tested on SuiteCRM version 7.7 to 7.11.19
  
 ## Upgrade safety
 The module is not upgrade safe as it needs to overwrite some core files. These are:
@@ -29,9 +29,12 @@ The module is not upgrade safe as it needs to overwrite some core files. These a
 
 2. the following theme files:
   - themes/SuiteP/css/Dawn/style.css
+  - themes/SuiteP/css/Day/style.css
+  - themes/SuiteP/css/Night/style.css
+  - themes/SuiteP/css/Dusk/style.css
   
 In case of upgrading
  - First uninstall the module
  - perform the upgrade
- - check the module compatibility by checking the contents of the files above. The module can be made compatible against newer versions by using the captcha.diff file in the module file
+ - check the module compatibility by checking the contents of the files above. The module can be made compatible against newer versions by using the captcha.diff file in the module file except for the style.css files which are a result of sass compilation
  - After asserting its compatibility reinstall the captcha module
