@@ -144,11 +144,14 @@ if ($securimage->check($_POST['captcha_code']) == false) {
 if ($isLink) {
     global $timedate;
     $guid = create_guid();
-    $url = $GLOBALS['sugar_config']['site_url'] . "/index.php?entryPoint=Changenewpassword&guid=$guid";
+    $key = create_guid();
+    $hashedKey = User::getPasswordHash($key);
+    $url = $GLOBALS['sugar_config']['site_url'] . "/index.php?entryPoint=Changenewpassword&guid=$guid&key=$key";
     $time_now = TimeDate::getInstance()->nowDb();
     $userID = $usr->retrieve_user_id($username);
-    $q = "INSERT INTO users_password_link (id, username, date_generated, user_id) VALUES('" .
+    $q = "INSERT INTO users_password_link (id, keyhash, username, date_generated, user_id) VALUES('" .
         $guid . "','" .
+        $hashedKey . "','" .
         $username . "','" .
         $time_now . "','" .
         $userID . "') ";

@@ -151,6 +151,8 @@ class SugarApplication
         }
 
         $GLOBALS['current_user'] = BeanFactory::newBean('Users');
+
+        $isLogicActionCall = $this->controller->module === 'Users' && in_array($this->controller->action, $allowed_actions);
         if (isset($_SESSION['authenticated_user_id'])) {
             // set in modules/Users/Authenticate.php
             if (!$authController->sessionAuthenticate()) {
@@ -160,7 +162,7 @@ class SugarApplication
                 SugarApplication::redirect('index.php?action=Login&module=Users');
                 die();
             }//fi
-        } elseif (!($this->controller->module == 'Users' && in_array($this->controller->action, $allowed_actions))) {
+        } elseif (!$isLogicActionCall || !empty($_REQUEST['entryPoint'])) {
             session_destroy();
             SugarApplication::redirect('index.php?action=Login&module=Users');
             die();
@@ -430,7 +432,7 @@ class SugarApplication
         }
 
         if (!is_null($theme) && !headers_sent()) {
-            setcookie('sugar_user_theme', $theme, time() + 31536000, null, null, isSSL(), true); // expires in a year
+            self::setCookie('sugar_user_theme', $theme, time() + 31536000, null, null, isSSL(), true); // expires in a year
         }
 
         SugarThemeRegistry::set($theme);
@@ -801,6 +803,15 @@ class SugarApplication
                 $domain = $_SERVER["HTTP_HOST"];
             } else {
                 $domain = 'localhost';
+            }
+        }
+
+        $defaultCookiePath = ini_get('session.cookie_path');
+        if ($path === null) {
+            if(empty($defaultCookiePath)) {
+                $path = '/';
+            } else {
+                $path = $defaultCookiePath;
             }
         }
 
