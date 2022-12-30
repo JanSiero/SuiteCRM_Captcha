@@ -10,5 +10,9 @@ Captcha module
 
  - overwrites the following theme files:
 	themes/SuiteP/css/Dawn/style.css
+	themes/SuiteP/css/Dusk/style.css
+	themes/SuiteP/css/Day/style.css
+	themes/SuiteP/css/Night/style.css
+	themes/SuiteP/css/Noon/style.css
 
-Compatible with SuiteCRM up to version 7.11.12 - please check the core files for changes - diff is packed in the module zip
+Compatible with SuiteCRM up to version 7.11.13 - please check the core files for changes - diff is packed in the module zip
