@@ -140,6 +140,12 @@ if ($securimage->check($_POST['captcha_code']) == false) {
     // if i need to generate a password (not a link)
     $password = $isLink ? '' : User::generatePassword();
 
+$isPasswordGenerationActive = $res['SystemGeneratedPasswordON'] ?? false;
+if(!$isLink && empty($isPasswordGenerationActive)) {
+    echo 'Access Denied';
+    return;
+}
+
 // Create URL
 if ($isLink) {
     global $timedate;
