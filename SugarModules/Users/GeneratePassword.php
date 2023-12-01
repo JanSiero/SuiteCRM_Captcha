@@ -129,7 +129,7 @@ if ($securimage->check($_POST['captcha_code']) == false) {
 ///////////////////////////////////////////////////
 ///////  Check email address
 
-    if (!preg_match($regexmail, $usr->emailAddress->getPrimaryAddress($usr))) {
+    if (!preg_match($regexmail, (string) $usr->emailAddress->getPrimaryAddress($usr))) {
         echo $mod_strings['ERR_EMAIL_INCORRECT'];
         return;
     }
